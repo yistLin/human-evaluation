@@ -46,7 +46,7 @@ HTML_TEMP = """
 """
 
 FORM_HTML_TEMP = """
-<form action="#" method="GET">
+<form action="{url:s}" method="GET">
     <div class="form-group">
         <label for="name">姓名：</label>
         <input class="form-control" type="text" name="name" required>
@@ -103,7 +103,7 @@ SUBMIT_HTML_TEMP = """
 def main():
     """Main function."""
 
-    form_html = FORM_HTML_TEMP.format(form_id=1)
+    form_html = FORM_HTML_TEMP.format(url="#", form_id=1)
     form_soup = BeautifulSoup(form_html, "html.parser")
     form_tag = form_soup.form
 
