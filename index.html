@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="jumbotron jumbotron-fluid">
+   <div class="container">
+    <h1 class="display-4">
+     語者判別實驗
+    </h1>
+    <p class="lead">
+     判斷兩份語音是否出自同一個人
+    </p>
+    <hr class="my-4"/>
+    <p>
+     感謝您參與本次實驗！
+    </p>
+    <p>
+     在這個實驗中，我們使用電腦合成及轉換人類語音。每一題都有兩個音檔，請使用耳機聽完後，根據兩個音檔的語者相似度作答（僅考慮說話者的音色，不須考慮語句內容）。
+    </p>
+    <p>
+     評分標準為：
+     <ul>
+      <li>
+       確定是同一個語者 (same, absolutely sure)
+      </li>
+      <li>
+       不大確定，但傾向認為是同一個語者 (same, not sure)
+      </li>
+      <li>
+       不大確定，但傾向認為是不同語者 (different, not sure)
+      </li>
+      <li>
+       確定是不同語者 (different, absolutely sure)
+      </li>
+     </ul>
+    </p>
+   </div>
+  </div>
+  <div class="container" id="form_container">
+   <form action="#" method="GET">
+    <div class="form-group">
+     <label for="name">
+      姓名：
+     </label>
+     <input class="form-control" name="name" required="" type="text"/>
+     <small class="form-text text-muted">
+      必填*
+     </small>
+    </div>
+    <div class="form-group">
+     <label for="mail">
+      電子郵件：
+     </label>
+     <input class="form-control" name="mail" placeholder="account@example.com" type="text"/>
+     <small class="form-text text-muted">
+      如果中獎，我們將以電子郵件通知您
+     </small>
+    </div>
+    <input hidden="" name="formid" type="text" value="1"/>
+    <div class="card form-group">
+     <div class="card-header">
+      問題 1
+     </div>
+     <div class="card-body">
+      <p>
+       <audio controls="" src="#">
+        Your browser does not support the audio element.
+       </audio>
+      </p>
+      <p>
+       <audio controls="" src="#">
+        Your browser does not support the audio element.
+       </audio>
+      </p>
+      <div class="form-check">
+       <input class="form-check-input" id="q1_1" name="q1" required="" type="radio" value="1"/>
+       <label class="form-check-label" for="q1_1">
+        確定是同一個語者 (same, absolutely sure)
+       </label>
+      </div>
+      <div class="form-check">
+       <input class="form-check-input" id="q1_2" name="q1" required="" type="radio" value="2"/>
+       <label class="form-check-label" for="q1_2">
+        不大確定，但傾向認為是同一個語者 (same, not sure)
+       </label>
+      </div>
+      <div class="form-check">
+       <input class="form-check-input" id="q1_3" name="q1" required="" type="radio" value="3"/>
+       <label class="form-check-label" for="q1_3">
+        不大確定，但傾向認為是不同語者 (different, not sure)
+       </label>
+      </div>
+      <div class="form-check">
+       <input class="form-check-input" id="q1_4" name="q1" required="" type="radio" value="4"/>
+       <label class="form-check-label" for="q1_4">
+        確定是不同語者 (different, absolutely sure)
+       </label>
+      </div>
+     </div>
+    </div>
+    <div class="card form-group">
+     <div class="card-header">
+      問題 2
+     </div>
+     <div class="card-body">
+      <p>
+       <audio controls="" src="#">
+        Your browser does not support the audio element.
+       </audio>
+      </p>
+      <p>
+       <audio controls="" src="#">
+        Your browser does not support the audio element.
+       </audio>
+      </p>
+      <div class="form-check">
+       <input class="form-check-input" id="q2_1" name="q2" required="" type="radio" value="1"/>
+       <label class="form-check-label" for="q2_1">
+        確定是同一個語者 (same, absolutely sure)
+       </label>
+      </div>
+      <div class="form-check">
+       <input class="form-check-input" id="q2_2" name="q2" required="" type="radio" value="2"/>
+       <label class="form-check-label" for="q2_2">
+        不大確定，但傾向認為是同一個語者 (same, not sure)
+       </label>
+      </div>
+      <div class="form-check">
+       <input class="form-check-input" id="q2_3" name="q2" required="" type="radio" value="3"/>
+       <label class="form-check-label" for="q2_3">
+        不大確定，但傾向認為是不同語者 (different, not sure)
+       </label>
+      </div>
+      <div class="form-check">
+       <input class="form-check-input" id="q2_4" name="q2" required="" type="radio" value="4"/>
+       <label class="form-check-label" for="q2_4">
+        確定是不同語者 (different, absolutely sure)
+       </label>
+      </div>
+     </div>
+    </div>
+    <div class="card form-group">
+     <div class="card-header">
+      問題 3
+     </div>
+     <div class="card-body">
+      <p>
+       <audio controls="" src="#">
+        Your browser does not support the audio element.
+       </audio>
+      </p>
+      <p>
+       <audio controls="" src="#">
+        Your browser does not support the audio element.
+       </audio>
+      </p>
+      <div class="form-check">
+       <input class="form-check-input" id="q3_1" name="q3" required="" type="radio" value="1"/>
+       <label class="form-check-label" for="q3_1">
+        確定是同一個語者 (same, absolutely sure)
+       </label>
+      </div>
+      <div class="form-check">
+       <input class="form-check-input" id="q3_2" name="q3" required="" type="radio" value="2"/>
+       <label class="form-check-label" for="q3_2">
+        不大確定，但傾向認為是同一個語者 (same, not sure)
+       </label>
+      </div>
+      <div class="form-check">
+       <input class="form-check-input" id="q3_3" name="q3" required="" type="radio" value="3"/>
+       <label class="form-check-label" for="q3_3">
+        不大確定，但傾向認為是不同語者 (different, not sure)
+       </label>
+      </div>
+      <div class="form-check">
+       <input class="form-check-input" id="q3_4" name="q3" required="" type="radio" value="4"/>
+       <label class="form-check-label" for="q3_4">
+        確定是不同語者 (different, absolutely sure)
+       </label>
+      </div>
+     </div>
+    </div>
+    <input class="btn btn-info btn-lg" type="submit" value="提交結果"/>
+   </form>
+  </div>
+  <div class="container" style="padding-top: 60px;">
+   <p class="text-center text-muted">
+    © 台大語音實驗室
+   </p>
+  </div>
+ </body>
+</html>
+
