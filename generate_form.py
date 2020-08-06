@@ -94,6 +94,7 @@ QUESTION_HTML_TEMP = """
 """
 
 SUBMIT_HTML_TEMP = """
+<input type="text" name="thank" value="再次謝謝您參與本次實驗！" hidden>
 <input class="btn btn-info btn-lg" value="提交結果" type="submit">
 """
 
