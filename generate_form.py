@@ -45,20 +45,18 @@ HTML_TEMP = """
 </html>
 """
 
-FORM_HTML_TEMP = """
-<form action="{url:s}" method="GET">
-    <div class="form-group">
-        <label for="name">姓名：</label>
-        <input class="form-control" type="text" name="name" required>
-        <small class="form-text text-muted">必填*</small>
-    </div>
-    <div class="form-group">
-        <label for="mail">電子郵件：</label>
-        <input class="form-control" type="text" placeholder="account@example.com" name="mail">
-        <small class="form-text text-muted">如果中獎，我們將以電子郵件通知您</small>
-    </div>
-    <input type="text" name="formid" value="{form_id:d}" hidden>
-</form>
+INFO_HTML_TEMP = """
+<div class="form-group">
+    <label for="name">姓名：</label>
+    <input class="form-control" type="text" name="name" required>
+    <small class="form-text text-muted">必填*</small>
+</div>
+<div class="form-group">
+    <label for="mail">電子郵件：</label>
+    <input class="form-control" type="text" placeholder="account@example.com" name="mail">
+    <small class="form-text text-muted">如果中獎，我們將以電子郵件通知您</small>
+</div>
+<input type="text" name="formid" value="{form_id:d}" hidden>
 """
 
 QUESTION_HTML_TEMP = """
@@ -103,23 +101,24 @@ SUBMIT_HTML_TEMP = """
 def main():
     """Main function."""
 
-    form_html = FORM_HTML_TEMP.format(url="#", form_id=1)
-    form_soup = BeautifulSoup(form_html, "html.parser")
-    form_tag = form_soup.form
+    soup = BeautifulSoup(HTML_TEMP, "html.parser")
+
+    form_tag = soup.new_tag("form", action="#", method="GET")
+
+    info_html = INFO_HTML_TEMP.format(form_id=1)
+    form_tag.append(BeautifulSoup(info_html, "html.parser"))
 
     for i in range(3):
         question_html = QUESTION_HTML_TEMP.format(title=f"問題 {i+1}",
                                                   audio_path_1="#",
                                                   audio_path_2="#",
                                                   question_var=f"q{i+1}")
-        question_soup = BeautifulSoup(question_html, "html.parser")
-        form_tag.append(question_soup)
+        form_tag.append(BeautifulSoup(question_html, "html.parser"))
 
     form_tag.append(BeautifulSoup(SUBMIT_HTML_TEMP, "html.parser"))
 
-    soup = BeautifulSoup(HTML_TEMP, "html.parser")
     container_tag = soup.find("div", id="form_container")
-    container_tag.append(form_soup)
+    container_tag.append(form_tag)
 
     print(soup.prettify())
 
