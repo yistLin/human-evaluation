@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
  <head>
+  <title>
+   表單 0
+  </title>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
   <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" rel="stylesheet"/>
@@ -41,7 +44,7 @@
    </div>
   </div>
   <div class="container" id="form_container">
-   <form action="#" method="GET">
+   <form action="https://script.google.com/macros/s/AKfycbxjdm_PbmBnAfdti3_UxUyAYdnlRQ_0VA67c0ruLOXGv6JuLXs/exec" id="theForm" method="GET" onsubmit="preventRepeatedSubmission();">
     <div class="form-group">
      <label for="name">
       姓名：
@@ -60,7 +63,8 @@
       如果中獎，我們將以電子郵件通知您
      </small>
     </div>
-    <input hidden="" name="formid" type="text" value="1"/>
+    <input hidden="" name="thank" type="text" value="再次謝謝您參與本次實驗！"/>
+    <input hidden="" name="formid" type="text" value="0"/>
     <div class="card form-group">
      <div class="card-header">
       問題 1
@@ -143,48 +147,12 @@
       </div>
      </div>
     </div>
-    <div class="card form-group">
-     <div class="card-header">
-      問題 3
-     </div>
-     <div class="card-body">
-      <p>
-       <audio controls="" src="#">
-        Your browser does not support the audio element.
-       </audio>
-      </p>
-      <p>
-       <audio controls="" src="#">
-        Your browser does not support the audio element.
-       </audio>
-      </p>
-      <div class="form-check">
-       <input class="form-check-input" id="q3_1" name="q3" required="" type="radio" value="1"/>
-       <label class="form-check-label" for="q3_1">
-        確定是同一個語者 (same, absolutely sure)
-       </label>
-      </div>
-      <div class="form-check">
-       <input class="form-check-input" id="q3_2" name="q3" required="" type="radio" value="2"/>
-       <label class="form-check-label" for="q3_2">
-        不大確定，但傾向認為是同一個語者 (same, not sure)
-       </label>
-      </div>
-      <div class="form-check">
-       <input class="form-check-input" id="q3_3" name="q3" required="" type="radio" value="3"/>
-       <label class="form-check-label" for="q3_3">
-        不大確定，但傾向認為是不同語者 (different, not sure)
-       </label>
-      </div>
-      <div class="form-check">
-       <input class="form-check-input" id="q3_4" name="q3" required="" type="radio" value="4"/>
-       <label class="form-check-label" for="q3_4">
-        確定是不同語者 (different, absolutely sure)
-       </label>
-      </div>
-     </div>
-    </div>
-    <input class="btn btn-info btn-lg" type="submit" value="提交結果"/>
+    <input class="btn btn-info btn-lg" id="submitBtn" type="submit" value="提交結果"/>
+    <p class="text-muted">
+     <small>
+      如果提交結果時發現繳不出去，請回頭檢查是否有填入姓名、是否每一題都有作答到，謝謝。
+     </small>
+    </p>
    </form>
   </div>
   <div class="container" style="padding-top: 60px;">
@@ -192,6 +160,13 @@
     © 台大語音實驗室
    </p>
   </div>
+  <script type="text/javascript">
+   function preventRepeatedSubmission() {
+            var submitBtn = document.getElementById("submitBtn");
+            submitBtn.disabled = true;
+            setTimeout("submitBtn.disabled=false;", 3000);
+            return true;
+        };
+  </script>
  </body>
 </html>
-
