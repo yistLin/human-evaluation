@@ -44,7 +44,7 @@
    </div>
   </div>
   <div class="container" id="form_container">
-   <form action="localhost:8888" id="theForm" method="GET" onsubmit="preventRepeatedSubmission();">
+   <form action="http://127.0.0.1:8888" id="theForm" method="GET" onsubmit="return preventRepeatedSubmission();">
     <div class="form-group">
      <label for="name">
       姓名：
@@ -162,9 +162,7 @@
   </div>
   <script type="text/javascript">
    function preventRepeatedSubmission() {
-            var submitBtn = document.getElementById("submitBtn");
-            submitBtn.disabled = true;
-            setTimeout("submitBtn.disabled=false;", 3000);
+            document.getElementById('submitBtn').disabled = true;
             return true;
         };
   </script>
