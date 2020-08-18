@@ -59,6 +59,7 @@
     <script type="text/javascript">
         function preventRepeatedSubmission() {
             document.getElementById('submitBtn').disabled = true;
+            setTimeout("submitBtn.disabled=false;", 5000);
             return true;
         };
     </script>
