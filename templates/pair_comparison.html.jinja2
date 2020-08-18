@@ -1,0 +1,53 @@
+{% extends "base.html.jinja2" %}
+{% block heading %}
+    <h1 class="display-4">語者判別實驗</h1>
+    <p class="lead">判斷兩份語音是否出自同一個人</p>
+    <hr class="my-4">
+    <p>
+        感謝您參與本次實驗！
+    </p>
+    <p>
+        在這個實驗中，我們使用電腦合成及轉換人類語音。每一題都有兩個音檔，請使用耳機聽完後，根據兩個音檔的語者相似度作答（僅考慮說話者的音色，不須考慮語句內容）。
+    </p>
+    <p>
+        評分標準為：
+        <ul>
+            <li>確定是同一個語者 (same, absolutely sure)</li>
+            <li>不大確定，但傾向認為是同一個語者 (same, not sure)</li>
+            <li>不大確定，但傾向認為是不同語者 (different, not sure)</li>
+            <li>確定是不同語者 (different, absolutely sure)</li>
+        </ul>
+    </p>
+{% endblock %}
+{% block form_questions %}
+    {% for question in questions %}
+        <div class="card form-group">
+            <div class="card-header">{{ question.title }}</div>
+            <div class="card-body">
+                {% for audio_path in question.audio_paths %}
+                    <p>
+                        <audio controls src="{{ audio_path }}">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </p>
+                {% endfor %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{ question.name }}" id="{{ question.name }}_1" value="1" required>
+                    <label class="form-check-label" for="{{ question.name }}_1">確定是同一個語者 (same, absolutely sure)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{ question.name }}" id="{{ question.name }}_2" value="2" required>
+                    <label class="form-check-label" for="{{ question.name }}_2">不大確定，但傾向認為是同一個語者 (same, not sure)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{ question.name }}" id="{{ question.name }}_3" value="3" required>
+                    <label class="form-check-label" for="{{ question.name }}_3">不大確定，但傾向認為是不同語者 (different, not sure)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{ question.name }}" id="{{ question.name }}_4" value="4" required>
+                    <label class="form-check-label" for="{{ question.name }}_4">確定是不同語者 (different, absolutely sure)</label>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

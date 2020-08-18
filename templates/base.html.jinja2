@@ -2,38 +2,22 @@
 <html>
 
 <head>
-    <title></title>
+    <title>{{ page_title }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+        integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">語者判別實驗</h1>
-            <p class="lead">判斷兩份語音是否出自同一個人</p>
-            <hr class="my-4">
-            <p>
-                感謝您參與本次實驗！
-            </p>
-            <p>
-                在這個實驗中，我們使用電腦合成及轉換人類語音。每一題都有兩個音檔，請使用耳機聽完後，根據兩個音檔的語者相似度作答（僅考慮說話者的音色，不須考慮語句內容）。
-            </p>
-            <p>
-                評分標準為：
-            <ul>
-                <li>確定是同一個語者 (same, absolutely sure)</li>
-                <li>不大確定，但傾向認為是同一個語者 (same, not sure)</li>
-                <li>不大確定，但傾向認為是不同語者 (different, not sure)</li>
-                <li>確定是不同語者 (different, absolutely sure)</li>
-            </ul>
-            </p>
+            {% block heading %}{% endblock %}
         </div>
     </div>
 
     <div class="container" id="form_container">
-        <form id="theForm" action="http://127.0.0.1:8888" method="GET" onsubmit="return preventRepeatedSubmission();">
+        <form id="theForm" action="{{ form_url }}" method="GET" onsubmit="return preventRepeatedSubmission();">
             <div class="form-group">
                 <label for="name">姓名：</label>
                 <input class="form-control" type="text" name="name" required>
@@ -44,6 +28,8 @@
                 <input class="form-control" type="text" placeholder="account@example.com" name="mail">
                 <small class="form-text text-muted">如果中獎，我們將以電子郵件通知您</small>
             </div>
+            {% block form_questions %}{% endblock %}
+            <input type="text" name="formid" value="{{ form_id }}" hidden>
             <input type="text" name="thank" value="再次謝謝您參與本次實驗！" hidden>
             <input class="btn btn-info btn-lg" type="submit" value="提交結果" id="submitBtn">
             <p class="text-muted">
