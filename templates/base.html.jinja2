@@ -20,12 +20,12 @@
         <form id="theForm" action="{{ form_url }}" method="GET" onsubmit="return preventRepeatedSubmission();">
             <div class="form-group">
                 <label for="name">姓名：</label>
-                <input class="form-control" type="text" name="name" required>
+                <input class="form-control" type="text" inputmode="text" name="name" required>
                 <small class="form-text text-muted">必填*</small>
             </div>
             <div class="form-group">
                 <label for="mail">電子郵件：</label>
-                <input class="form-control" type="text" placeholder="account@example.com" name="mail">
+                <input class="form-control" type="text" inputmode="email" placeholder="account@example.com" name="mail">
                 <small class="form-text text-muted">如果中獎，我們將以電子郵件通知您</small>
             </div>
             {% block form_questions %}{% endblock %}
